@@ -6,4 +6,3 @@ export default Ember.Component.reopen({
     this._super();
   }
 })
-

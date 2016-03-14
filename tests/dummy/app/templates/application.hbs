@@ -1,3 +1,9 @@
-<h2 id="title">Welcome to Ember</h2>
-
-{{outlet}}
+<div class="wrapper">
+  {{main-header}}      {{!-- templates/components/main-header --}}
+  {{main-sidebar}}     {{!-- templates/components/main-sidebar --}}
+  {{#content-wrapper}} {{!-- templates/components/content-wrapper --}}
+    {{outlet}}
+  {{/content-wrapper}}
+  {{main-footer}}      {{!-- templates/components/main-footer --}}
+  {{control-sidebar}}  {{!-- templates/components/control-sidebar --}}
+</div>
