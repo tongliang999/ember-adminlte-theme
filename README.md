@@ -10,7 +10,7 @@ admin bootstrap ui theme
 
 ## Using
   
-  add componement for application.hbs
+  add componement for ``application.hbs``
 
     <div class="wrapper">
       {{main-header}}      
@@ -26,6 +26,7 @@ admin bootstrap ui theme
 
 * `ember server`
 * Visit your app at http://localhost:4200.
+* Visit example at http://localhost:4200/example
 
 ## Running Tests
 
