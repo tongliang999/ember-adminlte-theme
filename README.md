@@ -6,7 +6,21 @@ admin bootstrap ui theme
 
 * `git clone git@github.com:huxinghai1988/ember-adminlte-theme.git` this repository
 * `npm install ember-adminlte-theme`
-* `vi package.json` "ember-adminlte-theme": "^0.0.1"   
+* `vi package.json` "ember-adminlte-theme": "^0.0.1"
+
+## Using
+  
+  add componement for application.hbs
+
+  <div class="wrapper">
+    {{main-header}}      
+    {{main-sidebar}}     
+    {{#content-wrapper}} 
+      {{outlet}}
+    {{/content-wrapper}}
+    {{main-footer}}      
+    {{control-sidebar}}
+  </div>
 
 ## Running
 

@@ -33,6 +33,7 @@ $.AdminLTE = {};
  * Modify these options to suit your implementation
  */
 $.AdminLTE.options = {
+  loadState: false,
   //Add slimscroll to navbar menus
   //This requires you to load the slimscroll plugin
   //in every page before app.js
@@ -143,7 +144,7 @@ $(function () {
   $.AdminLTE.init = function(){
 
     //Fix for IE page transitions
-    $("body").removeClass("hold-transition").addClass("sidebar-mini");
+    $("body").removeClass("hold-transition").addClass("sidebar-mini skin-blue");
 
     //Extend options if external options exist
     if (typeof AdminLTEOptions !== "undefined") {
@@ -208,6 +209,11 @@ $(function () {
       });
     }
 
+
+    o.loadState = true
+  }
+
+  $.AdminLTE.initRender = function(){
     /*
      * INITIALIZE BUTTON TOGGLE
      * ------------------------
@@ -219,8 +225,7 @@ $(function () {
         $(this).addClass("active");
         e.preventDefault();
       });
-    });
-
+    });    
   }
 });
 
