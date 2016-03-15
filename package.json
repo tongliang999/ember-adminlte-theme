@@ -1,6 +1,6 @@
 {
   "name": "ember-adminlte-theme",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "ember cli adminLte theme ui",
   "directories": {
     "doc": "doc",
@@ -36,10 +36,7 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-disable-prototype-extensions": "^1.0.0",
-    "broccoli-funnel": "^1.0.1",
-    "broccoli-merge-trees": "^1.1.1",
     "ember-try": "~0.0.8",
-    "fs-extra": "~0.26.5",
     "broccoli-stew": "~1.2.0"
   },
   "keywords": [
@@ -48,7 +45,9 @@
   "dependencies": {
     "ember-cli-babel": "^5.1.5",
     "ember-cli-htmlbars": "^1.0.1",
-    "ember-cli-htmlbars-inline-precompile": "^0.3.1"
+    "ember-cli-htmlbars-inline-precompile": "^0.3.1",
+    "broccoli-funnel": "^1.0.1",
+    "broccoli-merge-trees": "^1.1.1"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"

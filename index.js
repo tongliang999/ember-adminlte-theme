@@ -2,9 +2,7 @@
 'use strict';
 
 var path = require('path'),
-  fse = require('fs-extra'),
   Funnel = require('broccoli-funnel'),
-  stew = require('broccoli-stew'),
   BroccoliMergeTrees = require('broccoli-merge-trees'),
   util = require('util');
 
