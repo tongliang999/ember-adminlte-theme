@@ -12,15 +12,15 @@ admin bootstrap ui theme
   
   add componement for application.hbs
 
-  <div class="wrapper">
-    {{main-header}}      
-    {{main-sidebar}}     
-    {{#content-wrapper}} 
-      {{outlet}}
-    {{/content-wrapper}}
-    {{main-footer}}      
-    {{control-sidebar}}
-  </div>
+    <div class="wrapper">
+      {{main-header}}      
+      {{main-sidebar}}     
+      {{#content-wrapper}} 
+        {{outlet}}
+      {{/content-wrapper}}
+      {{main-footer}}      
+      {{control-sidebar}}
+    </div>
 
 ## Running
 
