@@ -1,12 +1,12 @@
 # Ember-admin-lte-theme
 
-This README outlines the details of collaborating on this Ember addon.
+admin bootstrap ui theme
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* `git clone git@github.com:huxinghai1988/ember-adminlte-theme.git` this repository
+* `npm install ember-adminlte-theme`
+* `vi package.json`   
 
 ## Running
 
