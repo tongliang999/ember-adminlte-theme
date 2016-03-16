@@ -26,6 +26,18 @@ admin bootstrap ui theme
       {{control-sidebar}}
     </div>
 
+  config import plugins ``ember-cli-build.js``
+
+    var app = new EmberApp(defaults, {
+      adminLTE: {
+        plugins: ['morris', 'icheck', 'datepicker', 
+          'bootstrap-wysihtml5', 'daterangepicker', 'jvectormap',
+          'select2', 'input-mask'
+        ]
+      }
+    });
+    
+
 ## Running
 
 * `ember server`
