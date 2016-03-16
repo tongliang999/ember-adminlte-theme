@@ -44,6 +44,7 @@ module.exports = {
 
     this.nodeModulePath = app.options.project.nodeModulesPath
     this.rootPath = this.nodeModulePath + "/"+ this.name
+    this.app = app
 
     this.options = this.objMerge({}, this.default_options)
 
@@ -60,17 +61,10 @@ module.exports = {
     app.import('vendor/css/font-awesome.css');
     app.import('vendor/bootstrap/js/bootstrap.js');
 
-    console.log("options: ", this.options)
-    
     this.options.plugins.forEach(function(plugin){
-      var path = self.plugins_paths[plugin]
-      if(path){
-        [].concat(path).forEach(function(path){
-          app.import("vendor/plugins/"+ path)  
-        })
-      }
+      self.loadCssPath(plugin)
+      self.loadJSPath(plugin)
     })
-    
     app.import('vendor/js/app.js');
   },
   getEnv: function () {
@@ -79,11 +73,27 @@ module.exports = {
   logger: function(message){
     console.log('['+ this.name +' HANDLING] '+ message)
   },
-  plugins_paths: {
+  cssPluginsPaths: {
+    "datepicker": "datepicker/datepicker3.css",
+    "select2": "select2/select2.css",
+    "icheck": "iCheck/all.css",
+    "morris": "morris/morris.css",
+    "bootstrap-wysihtml5": "bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css",
+    "daterangepicker": "daterangepicker/daterangepicker-bs3.css",
+    "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.css"
+  },
+  jsPluginsPaths: {
     "slimscroll": "slimScroll/jquery.slimscroll.min.js",
     "fastclick": "fastclick/fastclick.min.js",
     "jquery": "jQuery/jQuery-2.1.4.min.js",
-    "input-mask": "jquery.inputmask.js"
+    "input-mask": "input-mask/jquery.inputmask.js",
+    "select2": ["select2/select2.full.min.js", "select2/i18n/zh-CN.js"],
+    "datepicker": ["datepicker/bootstrap-datepicker.js", "datepicker/locales/bootstrap-datepicker.zh-CN.js"],
+    "icheck": "iCheck/icheck.min.js",
+    "morris": "morris/morris.min.js",
+    "bootstrap-wysihtml5": "bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js",
+    "daterangepicker": "daterangepicker/daterangepicker.js",
+    "jvectormap": "jvectormap/jquery-jvectormap-1.2.2.min.js"
   },
   getUnique: function(items){
     var u = {}, a = [];
@@ -101,5 +111,21 @@ module.exports = {
       data[k] = items[k]
     }
     return data;
+  },
+  loadJSPath: function(plugin){
+    var jsPath = this.jsPluginsPaths[plugin]
+    this.loadFilePath(jsPath)
+  },
+  loadCssPath: function(plugin){
+    var cssPath = this.cssPluginsPaths[plugin]
+    this.loadFilePath(cssPath)
+  },
+  loadFilePath: function(path){
+    var self = this;
+    if(path){
+      [].concat(path).forEach(function(p){
+        self.app.import("vendor/plugins/"+ p)  
+      })
+    }
   }
 };
