@@ -26,7 +26,7 @@ admin bootstrap ui theme
       {{control-sidebar}}
     </div>
 
-  config import plugins ``ember-cli-build.js``
+  config import [plugins](https://github.com/huxinghai1988/ember-adminlte-theme/blob/master/index.js#L76~L96) ``ember-cli-build.js``
 
     var app = new EmberApp(defaults, {
       adminLTE: {
@@ -36,7 +36,7 @@ admin bootstrap ui theme
         ]
       }
     });
-    
+
 
 ## Running
 
