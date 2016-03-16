@@ -9,7 +9,7 @@ admin bootstrap ui theme
 * `vi package.json` 
 
     "devDependencies": {
-      "ember-adminlte-theme": "0.1.1"
+      "ember-adminlte-theme": "0.2.0"
     }
 
 ## Using
