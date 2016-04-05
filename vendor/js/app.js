@@ -92,32 +92,7 @@ $.AdminLTE.options = {
       collapse: '[data-widget="collapse"]'
     }
   },
-  //Direct Chat plugin options
-  directChat: {
-    //Enable direct chat by default
-    enable: true,
-    //The button to open and close the chat contacts pane
-    contactToggleSelector: '[data-widget="chat-pane-toggle"]'
-  },
-  //Define the set of colors to use globally around the website
-  colors: {
-    lightBlue: "#3c8dbc",
-    red: "#f56954",
-    green: "#00a65a",
-    aqua: "#00c0ef",
-    yellow: "#f39c12",
-    blue: "#0073b7",
-    navy: "#001F3F",
-    teal: "#39CCCC",
-    olive: "#3D9970",
-    lime: "#01FF70",
-    orange: "#FF851B",
-    fuchsia: "#F012BE",
-    purple: "#8E24AA",
-    maroon: "#D81B60",
-    black: "#222222",
-    gray: "#d2d6de"
-  },
+
   //The standard screen sizes that bootstrap uses.
   //If you change these in the variables.less file, change
   //them here too.
@@ -195,15 +170,6 @@ $(function () {
     if (o.enableFastclick && typeof FastClick != 'undefined') {
       FastClick.attach(document.body);
     }
-
-    //Activate direct chat widget
-    if (o.directChat.enable) {
-      $(document).on('click', o.directChat.contactToggleSelector, function () {
-        var box = $(this).parents('.direct-chat').first();
-        box.toggleClass('direct-chat-contacts-open');
-      });
-    }
-
 
     o.loadState = true
   }
@@ -320,21 +286,12 @@ function _init() {
       $(document).on('click', toggleBtn, function (e) {
         e.preventDefault();
 
+        var action = ($("body").hasClass('sidebar-collapse')) ? "expanded" : "collapsed"
+        $("body").toggleClass("sidebar-collapse").trigger(action +".pushMenu")
+
         //Enable sidebar push menu
-        if ($(window).width() > (screenSizes.sm - 1)) {
-          if ($("body").hasClass('sidebar-collapse')) {
-            $("body").removeClass('sidebar-collapse').trigger('expanded.pushMenu');
-          } else {
-            $("body").addClass('sidebar-collapse').trigger('collapsed.pushMenu');
-          }
-        }
-        //Handle sidebar push menu for small screens
-        else {
-          if ($("body").hasClass('sidebar-open')) {
-            $("body").removeClass('sidebar-open').removeClass('sidebar-collapse').trigger('collapsed.pushMenu');
-          } else {
-            $("body").addClass('sidebar-open').trigger('expanded.pushMenu');
-          }
+        if (!$(window).width() > (screenSizes.sm - 1) && action == "collapsed") {
+          $("body").removeClass('sidebar-collapse')
         }
       });
 

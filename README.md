@@ -2,6 +2,8 @@
 
 admin bootstrap ui theme
 
+Supports ember 2.1.x
+
 ## Installation
 
 * `git clone git@github.com:huxinghai1988/ember-adminlte-theme.git` this repository
