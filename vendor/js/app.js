@@ -228,10 +228,8 @@ function _init() {
       } else {
         var postSetWidth;
         if (window_height >= sidebar_height) {
-          $(".content-wrapper, .right-side").css('min-height', window_height - neg);
           postSetWidth = window_height - neg;
         } else {
-          $(".content-wrapper, .right-side").css('min-height', sidebar_height);
           postSetWidth = sidebar_height;
         }
 
@@ -239,9 +237,9 @@ function _init() {
         var controlSidebar = $($.AdminLTE.options.controlSidebarOptions.selector);
         if (typeof controlSidebar !== "undefined") {
           if (controlSidebar.height() > postSetWidth)
-            $(".content-wrapper, .right-side").css('min-height', controlSidebar.height());
+            postSetWidth = controlSidebar.height()
         }
-
+        $(".content-wrapper, .right-side").css('min-height', postSetWidth);
       }
     },
     fixSidebar: function () {
@@ -286,13 +284,15 @@ function _init() {
       $(document).on('click', toggleBtn, function (e) {
         e.preventDefault();
 
-        var action = ($("body").hasClass('sidebar-collapse')) ? "expanded" : "collapsed"
-        $("body").toggleClass("sidebar-collapse").trigger(action +".pushMenu")
-
+        var class_name = "sidebar-collapse"
         //Enable sidebar push menu
-        if (!$(window).width() > (screenSizes.sm - 1) && action == "collapsed") {
-          $("body").removeClass('sidebar-collapse')
+        if($(window).width() <= (screenSizes.sm - 1)){
+          $("body").removeClass(class_name)
+          class_name = "sidebar-open"
         }
+
+        var action = ($("body").hasClass(class_name)) ? "expanded" : "collapsed"
+        $("body").toggleClass(class_name).trigger(action +".pushMenu")
       });
 
       $(".content-wrapper").click(function () {
