@@ -44,7 +44,22 @@ Supports ember 2.1.x
 
 * `ember server`
 * Visit your app at http://localhost:4200.
-* Visit example at http://localhost:4200/example
+* Visit example at http://localhost:4200/example/index.html
+
+### Example index SCP questions
+
+    //config/environment.js
+
+    contentSecurityPolicyHeader: 'Content-Security-Policy',
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' *",
+      'font-src': "'self' 'unsafe-inline' maxcdn.bootstrapcdn.com fonts.googleapis.com fonts.gstatic.com",
+      'connect-src': "'self' *",
+      'img-src': "'self' * data:",
+      'style-src': "'self' 'unsafe-inline' maxcdn.bootstrapcdn.com fonts.googleapis.com"
+    }
+
 
 ## Running Tests
 
