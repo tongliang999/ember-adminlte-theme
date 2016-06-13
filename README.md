@@ -16,7 +16,7 @@ Supports ember 2.1.x
 
 ## Using
   
-  add componement for ``application.hbs``
+  add component for ``application.hbs``
 
     <div class="wrapper">
       {{main-header}}      
