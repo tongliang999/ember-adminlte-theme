@@ -46,7 +46,7 @@ Supports ember 2.1.x
 * Visit your app at http://localhost:4200.
 * Visit example at http://localhost:4200/example/index.html
 
-### Example index SCP questions
+### Example index CSP questions
 
     //config/environment.js
 
@@ -60,6 +60,9 @@ Supports ember 2.1.x
       'style-src': "'self' 'unsafe-inline' maxcdn.bootstrapcdn.com fonts.googleapis.com"
     }
 
+### Preview Image
+
+![](https://raw.githubusercontent.com/huxinghai1988/ember-adminlte-theme/master/preview.png)
 
 ## Running Tests
 
