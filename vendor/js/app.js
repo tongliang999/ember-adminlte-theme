@@ -67,7 +67,6 @@ $.AdminLTE.options = {
   //Control Sidebar Options
   enableControlSidebar: true,
   controlSidebarOptions: {
-    toggleBtnSelector: "[data-toggle='control-sidebar']",
     //The sidebar selector
     selector: ".control-sidebar",
     //Enable slide over content
@@ -118,7 +117,7 @@ $(function () {
   $.AdminLTE.init = function(){
 
     //Fix for IE page transitions
-    $("body").removeClass("hold-transition").addClass("sidebar-mini skin-blue");
+    $("body").removeClass("hold-transition").addClass("sidebar-mini skin-blue-light");
 
     //Extend options if external options exist
     if (typeof AdminLTEOptions !== "undefined") {
@@ -187,7 +186,7 @@ $(function () {
         $(this).addClass("active");
         e.preventDefault();
       });
-    });    
+    });
   }
 });
 
@@ -212,10 +211,11 @@ function _init() {
       var _this = this;
       _this.fix();
       _this.fixSidebar();
-      $(window, ".wrapper").resize(function () {
-        // _this.fix();
-        _this.fixSidebar();
-      });
+
+      function resizeDebounce() {
+        Ember.run.debounce(_this, _this.fixSidebar, 100);
+      }
+      $(window, ".wrapper").resize(resizeDebounce);
     },
     fix: function () {
       //Get window height and the wrapper height
@@ -354,21 +354,6 @@ function _init() {
       var o = $.AdminLTE.options.controlSidebarOptions;
       //Get the sidebar
       var sidebar = $(o.selector);
-      //The toggle button
-      var btn = $(o.toggleBtnSelector);
-
-      //Listen to the click event
-      btn.on('click', function (e) {
-        e.preventDefault();
-        //If the sidebar is not open
-        if (!sidebar.hasClass('control-sidebar-open')
-            && !$('body').hasClass('control-sidebar-open')) {
-          //Open the sidebar
-          _this.open(sidebar, o.slide);
-        } else {
-          _this.close(sidebar, o.slide);
-        }
-      });
 
       //If the body has a boxed layout, fix the sidebar bg position
       var bg = $(".control-sidebar-bg");
@@ -384,33 +369,20 @@ function _init() {
         }
       }
     },
-    //Open the control sidebar
-    open: function (sidebar, slide) {
-      //Slide over content
-      if (slide) {
-        sidebar.addClass('control-sidebar-open');
-      } else {
-        //Push the content by adding the open class to the body instead
-        //of the sidebar itself
-        $('body').addClass('control-sidebar-open');
-      }
-    },
-    //Close the control sidebar
-    close: function (sidebar, slide) {
-      if (slide) {
-        sidebar.removeClass('control-sidebar-open');
-      } else {
-        $('body').removeClass('control-sidebar-open');
-      }
-    },
     _fix: function (sidebar) {
       var _this = this;
       if ($("body").hasClass('layout-boxed')) {
         sidebar.css('position', 'absolute');
         sidebar.height($(".wrapper").height());
-        $(window).resize(function () {
+
+        function fixSidebar() {
           _this._fix(sidebar);
-        });
+        }
+
+        function resizeDebounce() {
+          Ember.run.debounce(_this, fixSidebar, 100);
+        }
+        $(window).resize(resizeDebounce);
       } else {
         sidebar.css({
           'position': 'fixed',
