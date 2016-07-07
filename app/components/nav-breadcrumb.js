@@ -1,1 +1,1 @@
-export { default } from "ember-adminlte-theme/components/nav-breadcrumb"
+export { default } from "ember-zbj-adminlte-theme/components/nav-breadcrumb"

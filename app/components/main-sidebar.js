@@ -1,1 +1,1 @@
-export { default } from "ember-adminlte-theme/components/main-sidebar"
+export { default } from "ember-zbj-adminlte-theme/components/main-sidebar"

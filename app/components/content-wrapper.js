@@ -1,1 +1,1 @@
-export { default } from "ember-adminlte-theme/components/content-wrapper"
+export { default } from "ember-zbj-adminlte-theme/components/content-wrapper"

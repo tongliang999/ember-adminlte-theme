@@ -1,5 +1,5 @@
 {
-  "name": "ember-adminlte-theme",
+  "name": "ember-zbj-adminlte-theme",
   "dependencies": {
     "ember": "2.1.0",
     "ember-cli-shims": "0.0.6",

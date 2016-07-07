@@ -6,33 +6,33 @@ Supports ember 2.1.x
 
 ## Installation
 
-* `git clone git@github.com:huxinghai1988/ember-adminlte-theme.git` this repository
-* `npm install ember-adminlte-theme`
-* `vi package.json` 
+* `git clone git@github.com:huxinghai1988/ember-zbj-adminlte-theme.git` this repository
+* `npm install ember-zbj-adminlte-theme`
+* `vi package.json`
 
     "devDependencies": {
-      "ember-adminlte-theme": "0.2.0"
+      "ember-zbj-adminlte-theme": "0.2.0"
     }
 
 ## Using
-  
+
   add component for ``application.hbs``
 
     <div class="wrapper">
       {{main-header}}      
       {{main-sidebar}}     
-      {{#content-wrapper}} 
+      {{#content-wrapper}}
         {{outlet}}
       {{/content-wrapper}}
       {{main-footer}}      
       {{control-sidebar}}
     </div>
 
-  config import [plugins](https://github.com/huxinghai1988/ember-adminlte-theme/blob/master/index.js#L76~L96) ``ember-cli-build.js``
+  config import [plugins](https://github.com/huxinghai1988/ember-zbj-adminlte-theme/blob/master/index.js#L76~L96) ``ember-cli-build.js``
 
     var app = new EmberApp(defaults, {
       adminLTE: {
-        plugins: ['morris', 'icheck', 'datepicker', 
+        plugins: ['morris', 'icheck', 'datepicker',
           'bootstrap-wysihtml5', 'daterangepicker', 'jvectormap',
           'select2', 'input-mask'
         ]
@@ -62,7 +62,7 @@ Supports ember 2.1.x
 
 ### Preview Image
 
-![](https://raw.githubusercontent.com/huxinghai1988/ember-adminlte-theme/master/preview.png)
+![](https://raw.githubusercontent.com/huxinghai1988/ember-zbj-adminlte-theme/master/preview.png)
 
 ## Running Tests
 

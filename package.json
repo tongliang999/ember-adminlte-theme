@@ -1,6 +1,6 @@
 {
   "name": "ember-zbj-adminlte-theme",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "ember cli adminLte theme ui",
   "directories": {
     "doc": "doc",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:huxinghai1988/ember-adminlte-theme.git"
+    "url": "git@github.com:huxinghai1988/ember-zbj-adminlte-theme.git"
   },
   "engines": {
     "node": ">= 0.10.0"

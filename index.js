@@ -7,7 +7,7 @@ var path = require('path'),
   util = require('util');
 
 module.exports = {
-  name: 'ember-adminlte-theme',
+  name: 'ember-zbj-adminlte-theme',
   getExamplePath: "pub/example",
   default_options: {
     plugins: ["slimscroll", "fastclick"]
@@ -107,7 +107,7 @@ module.exports = {
     return a;
   },
   objMerge: function(data, items){
-    for(var k in items){  
+    for(var k in items){
       data[k] = items[k]
     }
     return data;
@@ -124,7 +124,7 @@ module.exports = {
     var self = this;
     if(path){
       [].concat(path).forEach(function(p){
-        self.app.import("vendor/plugins/"+ p)  
+        self.app.import("vendor/plugins/"+ p)
       })
     }
   }
